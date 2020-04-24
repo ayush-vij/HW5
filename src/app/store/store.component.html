@@ -1,20 +1,22 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col bg-dark text-white">
+    <div class="col bg-success text-white">
       <a class="navbar-brand">SPORTS STORE</a>
     </div>
   </div>
   <div class="row">
     <div class="col-3 p-2">
-      <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">
+      <button
+        class="btn btn-block btn-outline-primary"
+        (click)="changeCategory()"
+      >
         Home
       </button>
       <button
         *ngFor="let cat of categories"
         class="btn btn-outline-primary btn-block"
         [class.active]="cat == selectedCategory"
-        (click)="changeCategory(cat)"
-        (click)="selectedPage = 1"
+        (click)="changeCategory(cat); selectedPage = 1"
       >
         {{ cat }}
       </button>
@@ -25,7 +27,7 @@
         <h4>
           {{ product.name }}
           <span class="badge badge-pill badge-primary float-right">
-            {{ product.price | currency: 'USD':'symbol':'2.2-2' }}
+            {{ product.price | currency: "USD":"symbol":"2.2-2" }}
           </span>
         </h4>
         <div class="card-text bg-white p-1">{{ product.description }}</div>
@@ -46,7 +48,7 @@
 
       <div class="btn-group float-right">
         <button
-          *ngFor="let page of pageNumbers"
+          *counter="let page of pageCount"
           (click)="changePage(page)"
           class="btn btn-outline-primary"
           [class.active]="page == selectedPage"
