@@ -16,7 +16,8 @@
         *ngFor="let cat of categories"
         class="btn btn-outline-primary btn-block"
         [class.active]="cat == selectedCategory"
-        (click)="changeCategory(cat); selectedPage = 1"
+        (click)="changeCategory(cat);"
+        (click)="selectedPage = 1"
       >
         {{ cat }}
       </button>
